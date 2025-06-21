@@ -1,0 +1,44 @@
+﻿
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <h3>Sweet Alert</h3>
+    <button class="btn btn-primary" onclick="displayAlert()">Add Student</button>
+</div>
+
+<div>
+    <table class="table table-bordered table-striped" id="dataTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Student Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Fathers Name</th>
+                <th>Mothers Name</th>
+                <th>Nationality</th>
+            </tr>
+        </thead> 
+    </table>
+</div>
+@section scripts{
+    <script src="~/js/datatable_file.js"></script> 
+    @if (TempData["message"] != null)
+    {
+        <script>
+            function displayAlert()
+            {
+                Swal.fire({
+                title: 'Message',
+                text: '@TempData["message"]',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+                });
+            }
+        </script>
+    }
+}
+
